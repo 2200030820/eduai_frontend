@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
+/*
+|-----------------------------------------------------------
+| src/App.css: CONSOLIDATED GLOBAL AND COMPONENT STYLES
+|-----------------------------------------------------------
+| Theme: Muted Teal (#00796B) and Safety Orange (#FF5722)
+*/
+
+/* ===== GLOBAL & BASE STYLES ===== */
+:root {
+    --primary-color: #00796B; /* Teal Base */
+    --secondary-color: #FF5722; /* Safety Orange Accent */
+    --background-light: #F5F5F5; /* Neutral Background */
+    --text-dark: #333333;
+    --text-medium: #555555;
+    --success-color: #2ecc71; /* Green for success/strong */
+    --error-color: #e74c3c; /* Red for errors/weak */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    min-height: 100vh;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-color: var(--background-light);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* MUI Card/Paper Overrides (Retained styles for MUI components) */
+.MuiPaper-root {
+    border-radius: 12px !important;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.35s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.MuiPaper-root:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-2px) scale(1.01);
 }
 
-.App-link {
-  color: #61dafb;
+/* Page Container Styling */
+.page-container {
+    padding: 2rem 1rem;
+    padding-top: 5rem; /* Ensure space for fixed Navbar if used later */
+    margin: 0 auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.section-title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* ===== DASHBOARD SPECIFIC STYLES (Layout/Alignment Fix) ===== */
+
+.dashboard-welcome-card {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2.5rem 2rem; /* Increased padding */
+    max-width: 800px;
+    margin: 0 auto 3rem; /* Increased margin-bottom */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-avatar {
+    background-color: white;
+    color: var(--primary-color);
+    width: 80px !important; /* Increased size for better visual weight */
+    height: 80px !important;
+    font-size: 2rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.stat-card-paper {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    height: 100%; /* Ensure uniform height for stat cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stat-value {
+    font-weight: bold;
+    margin-top: 0.5rem;
+    font-size: 1.6rem; /* Enhanced visibility */
+}
+
+/* Learning Path Progress Bar */
+.progress-container {
+    width: 100%;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    background: #edf2f7;
+    height: 14px; /* Slightly thicker bar */
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.6s ease;
+}
+
+/* Badge Display */
+.badge-grid-item {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.badge-item {
+    background-color: #fff3e0; /* Light Secondary Accent */
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.badge-text {
+    font-weight: 500;
+    margin-left: 0.75rem;
+    font-size: 0.95rem;
+}
+
+
+/* ===== UTILITY STYLES ===== */
+.link-button-group > button {
+    margin: 0 0.5rem;
+}
+
+/* Responsive adjustments for mobile padding */
+@media (max-width: 600px) {
+    .page-container {
+        padding: 1rem 0.5rem;
+    }
+    .dashboard-welcome-card {
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+    }
 }
